@@ -19,7 +19,6 @@
 import QtQuick 2.4
 import QtQuick.Window 2.2
 import Ubuntu.Components 1.3
-import Ubuntu.Unity.Action 1.1 as UnityActions
 
 FocusScope {
     property bool developerExtrasEnabled: false
@@ -36,11 +35,6 @@ FocusScope {
 
     focus: true
 
-    property QtObject actionManager: UnityActions.ActionManager {
-        id: unityActionManager
-        onQuit: Qt.quit()
-    }
-    property alias actions: unityActionManager.actions
 
     default property alias contents: contentsItem.data
     property alias automaticOrientation: contentsItem.automaticOrientation

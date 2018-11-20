@@ -43,8 +43,6 @@ file(GLOB QML_FILES *.qml)
 install(FILES ${QML_FILES} DESTINATION ${CMAKE_INSTALL_DATADIR}/morph-browser)
 file(GLOB JS_FILES *.js)
 install(FILES ${JS_FILES} DESTINATION ${CMAKE_INSTALL_DATADIR}/morph-browser)
-install(DIRECTORY actions DESTINATION ${CMAKE_INSTALL_DATADIR}/morph-browser
-        FILES_MATCHING PATTERN *.qml)
 
 add_subdirectory(webbrowser)
 add_subdirectory(webcontainer)

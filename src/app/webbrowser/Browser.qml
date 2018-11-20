@@ -26,7 +26,6 @@ import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import webbrowserapp.private 0.1
 import webbrowsercommon.private 0.1
-import "../actions" as Actions
 import "../UrlUtils.js" as UrlUtils
 import ".."
 import "." as Local
@@ -180,41 +179,6 @@ BrowserView {
     FilteredKeyboardModel {
         id: keyboardModel
     }
-
-    actions: [
-        Actions.GoTo {
-            onTriggered: currentWebview.url = value
-        },
-        Actions.Back {
-            enabled: currentWebview ? currentWebview.canGoBack : false
-            onTriggered: currentWebview.goBack()
-        },
-        Actions.Forward {
-            enabled: currentWebview ? currentWebview.canGoForward : false
-            onTriggered: currentWebview.goForward()
-        },
-        Actions.Reload {
-            enabled: currentWebview
-            onTriggered: currentWebview.reload()
-        },
-        Actions.Bookmark {
-            enabled: currentWebview
-            onTriggered: internal.addBookmark(currentWebview.url, currentWebview.title, currentWebview.icon)
-        },
-        Actions.NewTab {
-            onTriggered: internal.openUrlInNewTab("", true)
-        },
-        Actions.ClearHistory {
-            onTriggered: HistoryModel.clearAll()
-        },
-        Actions.FindInPage {
-            enabled: !chrome.findInPageMode && !newTabViewLoader.active
-            onTriggered: {
-                chrome.findInPageMode = true
-                chrome.focus = true
-            }
-        }
-    ]
 
     FocusScope {
         id: contentsContainer
